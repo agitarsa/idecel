@@ -20,36 +20,36 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
-            var willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
+            //var willHurtEnemy = player.Bounds.center.y >= enemy.Bounds.max.y;
 
-            if (willHurtEnemy)
-            {
-                if (enemy.TryGetComponent(out Health enemyHealth))
-                {
-                    enemyHealth.Decrement();
-                    if (!enemyHealth.IsAlive)
-                    {
-                        Schedule<EnemyDeath>().enemy = enemy;
-                        player.Bounce(2);
-                    }
-                    else
-                    {
-                        player.Bounce(7);
-                    }
-                }
-                else
-                {
-                    Schedule<EnemyDeath>().enemy = enemy;
-                    player.Bounce(2);
-                }
-            }
-            else
-            {
+            //if (willHurtEnemy)
+            //{
+            //    if (enemy.TryGetComponent(out Health enemyHealth))
+            //    {
+            //        enemyHealth.Decrement();
+            //        if (!enemyHealth.IsAlive)
+            //        {
+            //            Schedule<EnemyDeath>().enemy = enemy;
+            //            player.Bounce(2);
+            //        }
+            //        else
+            //        {
+            //            player.Bounce(7);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Schedule<EnemyDeath>().enemy = enemy;
+            //        player.Bounce(2);
+            //    }
+            //}
+            //else
+            //{
                 if (player.TryGetComponent(out Health playerHealth))
                 {
                     playerHealth.Decrement();
                 }
-            }
+            //}
         }
     }
 }

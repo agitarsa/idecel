@@ -37,6 +37,11 @@ namespace Platformer.Mechanics
         /// </summary>
         public void Decrement()
         {
+            if(TryGetComponent(out Animator animator))
+            {
+                animator.SetTrigger("hurt");
+            }
+
             currentHP = Mathf.Clamp(currentHP - 1, 0, maxHP);
             if (currentHP == 0)
             {

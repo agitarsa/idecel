@@ -78,7 +78,14 @@ namespace Platformer.Mechanics
                 if (Input.GetButtonDown("Fire1"))
                 {
                     animator.SetTrigger("attack");
-                    basicAttack.Attack();
+
+                    Vector2 direction = Vector2.zero;
+                    if (transform.localScale.x < 0)
+                        direction.x = 1;
+                    else
+                        direction.x = -1;
+
+                    basicAttack.Attack(direction);
                 }
                 else if (Input.GetButtonDown("Fire2"))
                 {
@@ -86,6 +93,7 @@ namespace Platformer.Mechanics
                     {
                         //dash
                         move.x = move.normalized.x * specialAttack.dashSpeed;
+                        animator.SetTrigger("dash");
                     }
                     else if (charId.Equals("dika"))
                     {

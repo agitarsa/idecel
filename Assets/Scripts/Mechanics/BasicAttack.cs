@@ -11,9 +11,9 @@ namespace Platformer.Mechanics
         [SerializeField] private float radius;
         [SerializeField] private float range;
 
-        public void Attack()
+        public void Attack(Vector2 direction)
         {
-            var hits = Physics2D.CircleCastAll(transform.position, radius, Vector2.right, range);
+            var hits = Physics2D.CircleCastAll(transform.position, radius, direction, range);
             foreach (var hit in hits)
             {
                 Debug.Log($"hit {hit.transform.gameObject.name}", hit.transform.gameObject);
