@@ -17,6 +17,7 @@ namespace Platformer.Mechanics
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
+        public string charId;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -32,6 +33,8 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
+        public BasicAttack basicAttack;
+        public SpecialAttack specialAttack;
         public bool controlEnabled = true;
 
         bool jump;
@@ -45,6 +48,8 @@ namespace Platformer.Mechanics
         void Awake()
         {
             health = GetComponent<Health>();
+            basicAttack = GetComponent<BasicAttack>();
+            specialAttack = GetComponent<SpecialAttack>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -56,12 +61,43 @@ namespace Platformer.Mechanics
             if (controlEnabled)
             {
                 move.x = Input.GetAxis("Horizontal");
-                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
-                    jumpState = JumpState.PrepareToJump;
+                if (jumpState == JumpState.Grounded)
+                {
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        jumpState = JumpState.PrepareToJump;
+                    }
+                }
                 else if (Input.GetButtonUp("Jump"))
                 {
                     stopJump = true;
                     Schedule<PlayerStopJump>().player = this;
+                }
+                
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    basicAttack.Attack();
+                }
+                else if (Input.GetButtonDown("Fire2"))
+                {
+                    if (charId.Equals("momo"))
+                    {
+                        //dash
+                        move.x = move.normalized.x * specialAttack.dashSpeed;
+                    }
+                    else if (charId.Equals("dika"))
+                    {
+                        //bark
+                    }
+                    else if (charId.Equals("zex"))
+                    {
+                        //highjump
+
+                    }
+                    else if (charId.Equals("hani"))
+                    {
+                        //rolling
+                    }
                 }
             }
             else

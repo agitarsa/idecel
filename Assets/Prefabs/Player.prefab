@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 50915408107096866}
   - component: {fileID: 8509783501685719824}
   - component: {fileID: 6082575806313374961}
+  - component: {fileID: 191854407699539068}
+  - component: {fileID: 3020958016340934473}
   - component: {fileID: 1824045667}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -62,6 +64,8 @@ MonoBehaviour:
   collider2d: {fileID: 0}
   audioSource: {fileID: 0}
   health: {fileID: 0}
+  basicAttack: {fileID: 0}
+  specialAttack: {fileID: 0}
   controlEnabled: 1
 --- !u!212 &212064061491315838
 SpriteRenderer:
@@ -265,6 +269,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 1
+--- !u!114 &191854407699539068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208144871472054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7193508abd9983c4d9a29c137727f546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  range: 0
+--- !u!114 &3020958016340934473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208144871472054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ad50f3ba2436f4eb64deb82da41cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  range: 0
 --- !u!61 &1824045667
 BoxCollider2D:
   m_ObjectHideFlags: 0
