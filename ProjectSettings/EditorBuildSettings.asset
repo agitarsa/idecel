@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectCharacter.unity
     guid: d2be29f44f4ca9040babf43c7548d029
   - enabled: 1
+    path: Assets/Scenes/Lore.unity
+    guid: f1f6d6bbd769c7a44bf6ae20ff3d555e
+  - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

@@ -20,6 +20,12 @@ namespace Platformer.Mechanics
         //conveniently configured inside the inspector.
         public PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
+        private void Awake()
+        {
+            model.sliderHP.maxValue = model.player.health.maxHP;
+            model.sliderHP.minValue = 0;
+        }
+
         void OnEnable()
         {
             Instance = this;
@@ -33,6 +39,8 @@ namespace Platformer.Mechanics
         void Update()
         {
             if (Instance == this) Simulation.Tick();
+
+            model.sliderHP.value = model.player.health.CurrentHP;
         }
     }
 }

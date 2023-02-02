@@ -1,5 +1,6 @@
 using Platformer.Mechanics;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Platformer.Model
 {
@@ -38,5 +39,6 @@ namespace Platformer.Model
         /// </summary>
         public float jumpDeceleration = 0.5f;
 
+        public Slider sliderHP;
     }
 }
