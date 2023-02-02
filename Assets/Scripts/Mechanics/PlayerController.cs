@@ -18,6 +18,7 @@ namespace Platformer.Mechanics
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
         public string charId;
+        public float scaleMultiplier;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -76,6 +77,7 @@ namespace Platformer.Mechanics
                 
                 if (Input.GetButtonDown("Fire1"))
                 {
+                    animator.SetTrigger("attack");
                     basicAttack.Attack();
                 }
                 else if (Input.GetButtonDown("Fire2"))
@@ -155,9 +157,13 @@ namespace Platformer.Mechanics
             }
 
             if (move.x > 0.01f)
-                spriteRenderer.flipX = false;
+            {
+                transform.localScale = new Vector3(-scaleMultiplier, scaleMultiplier, 1f);
+            }
             else if (move.x < -0.01f)
-                spriteRenderer.flipX = true;
+            {
+                transform.localScale = new Vector3(scaleMultiplier, scaleMultiplier, 1f);
+            }
 
             animator.SetBool("grounded", IsGrounded);
             animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);

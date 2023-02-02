@@ -32,7 +32,7 @@ namespace Platformer.Mechanics
                         Schedule<EnemyDeath>().enemy = enemy;
                     }
 
-                    Debug.LogError("BasicAttack");
+                    //Debug.LogError("BasicAttack");
                     break;
                 }
             }
